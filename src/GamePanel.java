@@ -71,17 +71,31 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void checkCollision() {
-        // Cars reaching right edge
+        // Check car collision with right edge
         if (car1.x >= GAME_WIDTH) {
             car1.x = 0;
         }
 
+        // Check car collision with left edge
         if (car2.hisMovingLeft) {
             if (car2.x <= 0) {
                 car2.x = GAME_WIDTH;
             }
         }
 
+        // Check frog collision with panel edges
+        if (frog.x <= 0) {
+            frog.x = 0;
+        }
+        if (frog.x >= GAME_WIDTH-frog.width) {
+            frog.x = GAME_WIDTH-frog.width;
+        }
+        if (frog.y <= 0) {
+            frog.y = 0;
+        }
+        if (frog.y >= GAME_HEIGHT-frog.height) {
+            frog.y = GAME_HEIGHT-frog.height;
+        }
     }
 
     public void run() {

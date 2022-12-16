@@ -47,8 +47,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void newCar() {
-        car1 = new Car(0, 100, 50, 50, false);
-        car2 = new Car(0, 300, 50, 50, true);
+        cars.add(new Car(0, 100, 50, 50, false));
+        cars.add(new Car(0, 300, 50, 50, true));
     }
 
     public void paint(Graphics g) {
@@ -60,26 +60,35 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void draw(Graphics g) {
         frog.draw(g);
-        car1.draw(g);
-        car2.draw(g);
+
+        // Draw the cars
+        for(Car car : cars) {
+            car.draw(g);
+        }
     }
 
     public void move() {
         frog.move();
-        car1.move();
-        car2.move();
+
+        // Move the cars
+        for(Car car : cars) {
+            car.move();
+        }
     }
 
     public void checkCollision() {
-        // Check car collision with right edge
-        if (car1.x >= GAME_WIDTH) {
-            car1.x = 0;
-        }
-
-        // Check car collision with left edge
-        if (car2.hisMovingLeft) {
-            if (car2.x <= 0) {
-                car2.x = GAME_WIDTH;
+        // Check car collision with window edges
+        for(Car car : cars) {
+            if (!car.hisMovingLeft) {
+                // Check car collision with right edge
+                if (car.x >= GAME_WIDTH) {
+                    car.x = 0;
+                }
+            } else {
+                // Check car collision with left edge
+                if (car.x <= 0) {
+                    car.x = GAME_WIDTH;
+                }
             }
         }
 

@@ -26,19 +26,15 @@ public class Frog extends Rectangle {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
                 yVelocity = -speed;
-                System.out.println(e.getKeyCode());
                 break;
             case KeyEvent.VK_DOWN:
                 yVelocity = speed;
-                System.out.println(e.getKeyCode());
                 break;
             case KeyEvent.VK_LEFT:
                 xVelocity = -speed;
-                System.out.println(e.getKeyCode());
                 break;
             case KeyEvent.VK_RIGHT:
                 xVelocity = speed;
-                System.out.println(e.getKeyCode());
                 break;
         }
     }

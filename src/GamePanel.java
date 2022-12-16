@@ -79,7 +79,11 @@ public class GamePanel extends JPanel implements Runnable {
                 car.draw(g);
             }
         } else {
-            gameOver(g);
+            if (frog.y <= 0) {
+                gameWon(g);
+            } else {
+                gameOver(g);
+            }
         }
     }
 
@@ -125,7 +129,8 @@ public class GamePanel extends JPanel implements Runnable {
             frog.x = GAME_WIDTH-frog.width;
         }
         if (frog.y <= 0) {
-            frog.y = 0;
+            running = false;
+//            frog.y = 0;
         }
         if (frog.y >= GAME_HEIGHT-frog.height) {
             frog.y = GAME_HEIGHT-frog.height;
@@ -164,7 +169,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Prints "Game Over" message on the screed
+     * Print "Game Over" message on the screed
      * @param g - the <code>Graphics</code> object to protect
      */
     public void gameOver(Graphics g) {
@@ -173,6 +178,19 @@ public class GamePanel extends JPanel implements Runnable {
         g.setFont(new Font("Ink Free", Font.BOLD, 75));
         FontMetrics metric1 = getFontMetrics(g.getFont());
         g.drawString("Game Over", (SCREEN_SIZE.width - metric1.stringWidth("Game Over"))/2,
+                SCREEN_SIZE.height/2);
+    }
+
+    /**
+     * Print "You Won!" message on the screen
+     * @param g - the <code>Graphics</code> object to protect
+     */
+    public void gameWon(Graphics g) {
+        // Game Over text
+        g.setColor(Color.red);
+        g.setFont(new Font("Ink Free", Font.BOLD, 75));
+        FontMetrics metric1 = getFontMetrics(g.getFont());
+        g.drawString("You Won!", (SCREEN_SIZE.width - metric1.stringWidth("You Won!"))/2,
                 SCREEN_SIZE.height/2);
     }
 

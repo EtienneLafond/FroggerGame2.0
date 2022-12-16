@@ -16,6 +16,7 @@ public class GamePanel extends JPanel implements Runnable {
     static final int FROG_HEIGHT = 50;
 
     // Game components
+    boolean running = false;
     Thread gameThread;
     Image image;
     Graphics graphics;
@@ -40,6 +41,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         gameThread = new Thread(this);
         gameThread.start();
+        running = true;
     }
 
     public void newFrog() {
@@ -59,11 +61,15 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void draw(Graphics g) {
-        frog.draw(g);
+        if (running) {
+            frog.draw(g);
 
-        // Draw the cars
-        for(Car car : cars) {
-            car.draw(g);
+            // Draw the cars
+            for (Car car : cars) {
+                car.draw(g);
+            }
+        } else {
+            gameOver(g);
         }
     }
 
@@ -105,6 +111,13 @@ public class GamePanel extends JPanel implements Runnable {
         if (frog.y >= GAME_HEIGHT-frog.height) {
             frog.y = GAME_HEIGHT-frog.height;
         }
+
+        // Check collision between the frog and cars
+        for(Car car : cars) {
+            if (frog.intersects(car)) {
+                running = false;
+            }
+        }
     }
 
     public void run() {
@@ -114,7 +127,7 @@ public class GamePanel extends JPanel implements Runnable {
         double delta = 0;
 
         // Game loop
-        while (true) {
+        while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
@@ -126,6 +139,15 @@ public class GamePanel extends JPanel implements Runnable {
                 delta--;
             }
         }
+    }
+
+    public void gameOver(Graphics g) {
+        // Game Over text
+        g.setColor(Color.red);
+        g.setFont(new Font("Ink Free", Font.BOLD, 75));
+        FontMetrics metric1 = getFontMetrics(g.getFont());
+        g.drawString("Game Over", (SCREEN_SIZE.width - metric1.stringWidth("Game Over"))/2,
+                SCREEN_SIZE.height/2);
     }
 
     public class AL extends KeyAdapter {

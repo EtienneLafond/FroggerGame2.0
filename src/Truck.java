@@ -1,11 +1,11 @@
 import java.awt.*;
 
-public class Car extends Vehicle {
+public class Truck extends Vehicle {
     // Variables
     int speed = 10;
-    int width = 50;
+    int width = 150;
     int height = 50;
-    Color color = Color.white;
+    Color color = Color.blue;
 
     /**
      * Create a new car based on parameters.
@@ -15,12 +15,12 @@ public class Car extends Vehicle {
      * @param height - Integer - Height of the car.
      * @param isMovingLeft - Boolean - Direction of the car. Right if false, left if true.
      */
-    Car(int x, int y, boolean isMovingLeft) {
+    Truck(int x, int y, boolean isMovingLeft) {
         super(x, y, isMovingLeft);
         super.x = x;
         super.y = y;
-//        super.width = this.width;
-//        super.height = this.height;
+        super.width = this.width;
+        super.height = this.height;
         super.speed = speed;
         super.isMovingLeft = isMovingLeft;
         super.color = color;
@@ -47,3 +47,4 @@ public class Car extends Vehicle {
 //        g.fillRect(x, y, width, height);
 //    }
 }
+

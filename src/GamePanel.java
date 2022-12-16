@@ -25,7 +25,8 @@ public class GamePanel extends JPanel implements Runnable {
     Image image;
     Graphics graphics;
     Frog frog;
-    ArrayList<Car> cars = new ArrayList<>();
+    //ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
 
     /**
      * Creates the frog and cars, starts the threat and set panel size.
@@ -54,8 +55,10 @@ public class GamePanel extends JPanel implements Runnable {
      * Creates new cars and add them to ArrayList<> cars.
      */
     public void newCar() {
-        cars.add(new Car(0, 100, 50, 50, false));
-        cars.add(new Car(0, 300, 50, 50, true));
+        vehicles.add(new Vehicle(0, 50, false));
+        vehicles.add(new Car(0, 100, false));
+        vehicles.add(new Car(0, 300, true));
+        vehicles.add(new Truck(0, 400, false));
     }
 
     /**
@@ -79,8 +82,8 @@ public class GamePanel extends JPanel implements Runnable {
             frog.draw(g);
 
             // Draw the cars
-            for (Car car : cars) {
-                car.draw(g);
+            for (Vehicle vehicle : vehicles) {
+                vehicle.draw(g);
             }
         } else {
             if (frog.y <= 0) {
@@ -98,8 +101,8 @@ public class GamePanel extends JPanel implements Runnable {
         frog.move();
 
         // Move the cars
-        for(Car car : cars) {
-            car.move();
+        for(Vehicle vehicle : vehicles) {
+            vehicle.move();
         }
     }
 
@@ -111,16 +114,16 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void checkCollision() {
         // Check car collision with window edges
-        for(Car car : cars) {
-            if (!car.isMovingLeft) {
+        for(Vehicle vehicle : vehicles) {
+            if (!vehicle.isMovingLeft) {
                 // Check car collision with right edge
-                if (car.x >= GAME_WIDTH) {
-                    car.x = 0-car.width;
+                if (vehicle.x >= GAME_WIDTH) {
+                    vehicle.x = 0-vehicle.width;
                 }
             } else {
                 // Check car collision with left edge
-                if (car.x <= 0-car.width) {
-                    car.x = GAME_WIDTH;
+                if (vehicle.x <= 0-vehicle.width) {
+                    vehicle.x = GAME_WIDTH;
                 }
             }
         }
@@ -141,8 +144,8 @@ public class GamePanel extends JPanel implements Runnable {
         }
 
         // Check collision between the frog and cars
-        for(Car car : cars) {
-            if (frog.intersects(car)) {
+        for(Vehicle vehicle : vehicles) {
+            if (frog.intersects(vehicle)) {
                 running = false;
             }
         }

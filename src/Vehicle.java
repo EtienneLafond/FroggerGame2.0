@@ -2,17 +2,19 @@ import java.awt.*;
 
 public class Vehicle extends Rectangle {
     // Variables
-    int speed;
-    int width;
-    int height;
+    int speed = 5;
+    int width = 20;
+    int height = 20;
     boolean isMovingLeft;
     Color color;
 
-    Vehicle(int x, int y, int width, int height, boolean isMovingLeft) {
+    Vehicle() {
+
+    }
+
+    Vehicle(int x, int y, boolean isMovingLeft) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
         this.isMovingLeft = isMovingLeft;
     }
 
@@ -25,7 +27,7 @@ public class Vehicle extends Rectangle {
         }
     }
 
-    public void paint(Graphics g) {
+    public void draw(Graphics g) {
         g.setColor(color);
         g.fillRect(x, y, width, height);
     }

@@ -3,17 +3,22 @@ import java.awt.*;
 public class Car extends Rectangle {
     // Variables
     int speed;
-    boolean direction;
+    boolean hisMovingLeft;
 
 
-    Car(int x, int y, int width, int height) {
+    Car(int x, int y, int width, int height, boolean hisMovingLeft) {
         super(x, y, width, height);
         this.speed = 10;
-        this.direction = true;
+        this.hisMovingLeft = hisMovingLeft;
     }
 
     public void move() {
-        x += speed;
+        if (hisMovingLeft) {
+            x -= speed;
+        }
+        else {
+            x += speed;
+        }
     }
 
     public void draw(Graphics g) {

@@ -24,6 +24,8 @@ public class GamePanel extends JPanel implements Runnable {
     Car car2;
     Car car3;
 
+    ArrayList<Car> cars = new ArrayList<>();
+
     /**
      * Constructor
      * Creates the frog and cars, starts the threat and set panel size.
@@ -45,7 +47,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void newCar() {
-        car1 = new Car(0, 100, 50, 50);
+        car1 = new Car(0, 100, 50, 50, false);
+        car2 = new Car(0, 300, 50, 50, true);
     }
 
     public void paint(Graphics g) {
@@ -58,11 +61,13 @@ public class GamePanel extends JPanel implements Runnable {
     public void draw(Graphics g) {
         frog.draw(g);
         car1.draw(g);
+        car2.draw(g);
     }
 
     public void move() {
         frog.move();
         car1.move();
+        car2.move();
     }
 
     public void checkCollision() {
@@ -70,6 +75,13 @@ public class GamePanel extends JPanel implements Runnable {
         if (car1.x >= GAME_WIDTH) {
             car1.x = 0;
         }
+
+        if (car2.hisMovingLeft) {
+            if (car2.x <= 0) {
+                car2.x = GAME_WIDTH;
+            }
+        }
+
     }
 
     public void run() {

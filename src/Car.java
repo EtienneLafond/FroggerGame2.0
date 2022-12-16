@@ -3,7 +3,7 @@ import java.awt.*;
 public class Car extends Rectangle {
     // Variables
     int speed;
-    boolean hisMovingLeft;
+    boolean isMovingLeft;
 
     /**
      * Create a new car based on parameters.
@@ -11,19 +11,19 @@ public class Car extends Rectangle {
      * @param y - Integer - Starting value of y coordinate.
      * @param width - Integer - Width of the car.
      * @param height - Integer - Height of the car.
-     * @param hisMovingLeft - Boolean - Direction of the car. Right if false, left if true.
+     * @param isMovingLeft - Boolean - Direction of the car. Right if false, left if true.
      */
-    Car(int x, int y, int width, int height, boolean hisMovingLeft) {
+    Car(int x, int y, int width, int height, boolean isMovingLeft) {
         super(x, y, width, height);
         this.speed = 10;
-        this.hisMovingLeft = hisMovingLeft;
+        this.isMovingLeft = isMovingLeft;
     }
 
     /**
-     * Update x coordinate of the car based on direction (hisMovingLeft)
+     * Update x coordinate of the car based on direction (isMovingLeft)
      */
     public void move() {
-        if (hisMovingLeft) {
+        if (isMovingLeft) {
             x -= speed;
         }
         else {

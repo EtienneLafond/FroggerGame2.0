@@ -108,14 +108,14 @@ public class GamePanel extends JPanel implements Runnable {
     public void checkCollision() {
         // Check car collision with window edges
         for(Car car : cars) {
-            if (!car.hisMovingLeft) {
+            if (!car.isMovingLeft) {
                 // Check car collision with right edge
                 if (car.x >= GAME_WIDTH) {
-                    car.x = 0;
+                    car.x = 0-car.width;
                 }
             } else {
                 // Check car collision with left edge
-                if (car.x <= 0) {
+                if (car.x <= 0-car.width) {
                     car.x = GAME_WIDTH;
                 }
             }

@@ -134,7 +134,6 @@ public class GamePanel extends JPanel implements Runnable {
         }
         if (frog.y <= 0) {
             running = false;
-//            frog.y = 0;
         }
         if (frog.y >= GAME_HEIGHT-frog.height) {
             frog.y = GAME_HEIGHT-frog.height;

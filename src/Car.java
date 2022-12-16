@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Car extends Rectangle {
     // Variables
-    int speed;
+    int speed = 10;
     boolean isMovingLeft;
 
     /**
@@ -15,7 +15,6 @@ public class Car extends Rectangle {
      */
     Car(int x, int y, int width, int height, boolean isMovingLeft) {
         super(x, y, width, height);
-        this.speed = 10;
         this.isMovingLeft = isMovingLeft;
     }
 

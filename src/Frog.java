@@ -2,15 +2,11 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class Frog extends Rectangle {
-    // Starting position (figure out how to use later)
-    final int xStart = GamePanel.GAME_WIDTH/2;
-    final int yStart = GamePanel.GAME_HEIGHT-100;
-
     // Variables
     String name;
-    int xVelocity;
-    int yVelocity;
-    int speed;
+    int xVelocity = 0;
+    int yVelocity = 0;
+    int speed = 10;
 
     Frog(int width, int height) {
         super(500, 500, width, height);
@@ -30,15 +26,19 @@ public class Frog extends Rectangle {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
                 yVelocity = -speed;
+                System.out.println(e.getKeyCode());
                 break;
             case KeyEvent.VK_DOWN:
                 yVelocity = speed;
+                System.out.println(e.getKeyCode());
                 break;
             case KeyEvent.VK_LEFT:
                 xVelocity = -speed;
+                System.out.println(e.getKeyCode());
                 break;
             case KeyEvent.VK_RIGHT:
-                yVelocity = speed;
+                xVelocity = speed;
+                System.out.println(e.getKeyCode());
                 break;
         }
     }
@@ -55,7 +55,7 @@ public class Frog extends Rectangle {
                 xVelocity = 0;
                 break;
             case KeyEvent.VK_RIGHT:
-                yVelocity = 0;
+                xVelocity = 0;
                 break;
         }
     }

@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -29,13 +30,13 @@ public class GamePanel extends JPanel implements Runnable {
      */
     GamePanel() {
         newFrog();
-        newCar();
+        //newCar();
 
         this.setFocusable(true);
         this.addKeyListener(new AL());
         this.setPreferredSize(SCREEN_SIZE);
 
-        gameThread = new Thread();
+        gameThread = new Thread(this);
         gameThread.start();
     }
 
@@ -59,27 +60,41 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void move() {
-
+        frog.move();
     }
 
     public void checkCollision() {
 
     }
 
-    @Override
     public void run() {
+        long lastTime = System.nanoTime();
+        double amountOfTicks = 60.0;
+        double ns = 1000000000 / amountOfTicks;
+        double delta = 0;
 
+        // Game loop
+        while (true) {
+            long now = System.nanoTime();
+            delta += (now - lastTime) / ns;
+            lastTime = now;
+
+            if (delta >= 1) {
+                move();
+                //checkCollision();;
+                repaint();
+                delta--;
+            }
+        }
     }
 
     public class AL extends KeyAdapter {
-        @Override
         public void keyPressed(KeyEvent e) {
-
+            frog.keyPressed(e);
         }
 
-        @Override
         public void keyReleased(KeyEvent e) {
-
+            frog.keyReleased(e);
         }
     }
 }

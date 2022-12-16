@@ -11,7 +11,7 @@ public class Frog extends Rectangle {
     }
 
     public void draw() {
-        
+
     }
 
     public void keyPressed(KeyEvent e) {

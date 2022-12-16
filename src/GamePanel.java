@@ -28,7 +28,15 @@ public class GamePanel extends JPanel implements Runnable {
      * Creates the frog and cars, starts the threat and set panel size.
      */
     GamePanel() {
+        newFrog();
+        newCar();
 
+        this.setFocusable(true);
+        this.addKeyListener(new AL());
+        this.setPreferredSize(SCREEN_SIZE);
+
+        gameThread = new Thread();
+        gameThread.start();
     }
 
     public void newFrog() {

@@ -16,7 +16,7 @@ public class GamePanel extends JPanel implements Runnable {
     static final int FROG_HEIGHT = 50;
 
     // Game components
-    boolean running = false;
+    boolean running;
     Thread gameThread;
     Image image;
     Graphics graphics;
@@ -161,7 +161,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (delta >= 1) {
                 move();
-                checkCollision();;
+                checkCollision();
                 repaint();
                 delta--;
             }

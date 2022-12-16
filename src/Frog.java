@@ -17,7 +17,8 @@ public class Frog extends Rectangle {
     }
 
     public void move() {
-
+        x += xVelocity;
+        y += yVelocity;
     }
 
     public void draw(Graphics g) {
@@ -26,10 +27,36 @@ public class Frog extends Rectangle {
     }
 
     public void keyPressed(KeyEvent e) {
-
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                yVelocity = -speed;
+                break;
+            case KeyEvent.VK_DOWN:
+                yVelocity = speed;
+                break;
+            case KeyEvent.VK_LEFT:
+                xVelocity = -speed;
+                break;
+            case KeyEvent.VK_RIGHT:
+                yVelocity = speed;
+                break;
+        }
     }
 
     public void keyReleased(KeyEvent e) {
-
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                yVelocity = 0;
+                break;
+            case KeyEvent.VK_DOWN:
+                yVelocity = 0;
+                break;
+            case KeyEvent.VK_LEFT:
+                xVelocity = 0;
+                break;
+            case KeyEvent.VK_RIGHT:
+                yVelocity = 0;
+                break;
+        }
     }
 }

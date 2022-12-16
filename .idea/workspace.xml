@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="86aa3b62-db55-4824-b2b1-127b2dd149d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/Frog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671197730810</updated>
-      <workItem from="1671197732626" duration="2739000" />
+      <workItem from="1671197732626" duration="3201000" />
     </task>
     <servers />
   </component>

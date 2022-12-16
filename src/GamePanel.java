@@ -55,7 +55,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void draw(Graphics g) {
-        frog.draw();
+        frog.draw(g);
     }
 
     public void move() {

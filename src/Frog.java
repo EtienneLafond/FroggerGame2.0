@@ -20,8 +20,9 @@ public class Frog extends Rectangle {
 
     }
 
-    public void draw() {
-
+    public void draw(Graphics g) {
+        g.setColor(Color.green);
+        g.fillRect(x, y, width, height);
     }
 
     public void keyPressed(KeyEvent e) {

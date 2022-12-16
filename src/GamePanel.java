@@ -40,7 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void newFrog() {
-
+        frog = new Frog(FROG_WIDTH, FROG_HEIGHT);
     }
 
     public void newCar() {

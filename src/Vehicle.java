@@ -8,15 +8,25 @@ public class Vehicle extends Rectangle {
     boolean isMovingLeft;
     Color color;
 
-    Vehicle(int x, int y, int width, int height) {
-
+    Vehicle(int x, int y, int width, int height, boolean isMovingLeft) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.isMovingLeft = isMovingLeft;
     }
 
     public void move() {
-
+        if (isMovingLeft) {
+            x -= speed;
+        }
+        else {
+            x += speed;
+        }
     }
 
-    public void paint() {
-
+    public void paint(Graphics g) {
+        g.setColor(color);
+        g.fillRect(x, y, width, height);
     }
 }

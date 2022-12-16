@@ -15,6 +15,10 @@ public class GamePanel extends JPanel implements Runnable {
     static final int FROG_WIDTH = 50;
     static final int FROG_HEIGHT = 50;
 
+    // Text constants
+    Color gameOverColor = Color.red;
+    Color gameWonColor = Color.green;
+
     // Game components
     boolean running;
     Thread gameThread;
@@ -174,7 +178,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void gameOver(Graphics g) {
         // Game Over text
-        g.setColor(Color.red);
+        g.setColor(gameOverColor);
         g.setFont(new Font("Ink Free", Font.BOLD, 75));
         FontMetrics metric1 = getFontMetrics(g.getFont());
         g.drawString("Game Over", (SCREEN_SIZE.width - metric1.stringWidth("Game Over"))/2,
@@ -187,7 +191,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void gameWon(Graphics g) {
         // Game Over text
-        g.setColor(Color.red);
+        g.setColor(gameWonColor);
         g.setFont(new Font("Ink Free", Font.BOLD, 75));
         FontMetrics metric1 = getFontMetrics(g.getFont());
         g.drawString("You Won!", (SCREEN_SIZE.width - metric1.stringWidth("You Won!"))/2,

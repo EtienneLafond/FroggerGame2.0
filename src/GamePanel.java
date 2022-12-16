@@ -30,7 +30,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     GamePanel() {
         newFrog();
-        //newCar();
+        newCar();
 
         this.setFocusable(true);
         this.addKeyListener(new AL());
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void newCar() {
-
+        car1 = new Car(0, 100, 50, 50);
     }
 
     public void paint(Graphics g) {
@@ -57,14 +57,19 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void draw(Graphics g) {
         frog.draw(g);
+        car1.draw(g);
     }
 
     public void move() {
         frog.move();
+        car1.move();
     }
 
     public void checkCollision() {
-
+        // Cars reaching right edge
+        if (car1.x >= GAME_WIDTH) {
+            car1.x = 0;
+        }
     }
 
     public void run() {
@@ -81,7 +86,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (delta >= 1) {
                 move();
-                //checkCollision();;
+                checkCollision();;
                 repaint();
                 delta--;
             }

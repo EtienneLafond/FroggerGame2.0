@@ -21,14 +21,9 @@ public class GamePanel extends JPanel implements Runnable {
     Image image;
     Graphics graphics;
     Frog frog;
-    Car car1;
-    Car car2;
-    Car car3;
-
     ArrayList<Car> cars = new ArrayList<>();
 
     /**
-     * Constructor
      * Creates the frog and cars, starts the threat and set panel size.
      */
     GamePanel() {
@@ -44,15 +39,25 @@ public class GamePanel extends JPanel implements Runnable {
         running = true;
     }
 
+    /**
+     * Creates new Frog (player).
+     */
     public void newFrog() {
         frog = new Frog(FROG_WIDTH, FROG_HEIGHT);
     }
 
+    /**
+     * Creates new cars and add them to ArrayList<> cars.
+     */
     public void newCar() {
         cars.add(new Car(0, 100, 50, 50, false));
         cars.add(new Car(0, 300, 50, 50, true));
     }
 
+    /**
+     * Paints the components on the game panel.
+     * @param g - the <code>Graphics</code> object to protect.
+     */
     public void paint(Graphics g) {
         image = createImage(getWidth(), getHeight());
         graphics = image.getGraphics();
@@ -60,6 +65,11 @@ public class GamePanel extends JPanel implements Runnable {
         g.drawImage(image, 0, 0, this);
     }
 
+    /**
+     * Draw the frog and cars when the game is running.
+     * Draw Game Over when the player loses.
+     * @param g - the <code>Graphics</code> object to protect.
+     */
     public void draw(Graphics g) {
         if (running) {
             frog.draw(g);
@@ -73,6 +83,9 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Move the frog (player) and each car.
+     */
     public void move() {
         frog.move();
 
@@ -82,6 +95,12 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Check for collisions between:
+     *  - frog and window edges
+     *  - cars and window edges
+     *  - frog and cars
+     */
     public void checkCollision() {
         // Check car collision with window edges
         for(Car car : cars) {
@@ -120,6 +139,9 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     *
+     */
     public void run() {
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
@@ -141,6 +163,10 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Prints "Game Over" message on the screed
+     * @param g - the <code>Graphics</code> object to protect
+     */
     public void gameOver(Graphics g) {
         // Game Over text
         g.setColor(Color.red);
@@ -150,6 +176,9 @@ public class GamePanel extends JPanel implements Runnable {
                 SCREEN_SIZE.height/2);
     }
 
+    /**
+     * Check for the key pressed/released by the player and change the direction of the frog accordingly.
+     */
     public class AL extends KeyAdapter {
         public void keyPressed(KeyEvent e) {
             frog.keyPressed(e);

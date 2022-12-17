@@ -7,8 +7,8 @@ import java.util.*;
 public class GamePanel extends JPanel implements Runnable {
 
     // Game dimensions
-    static final int GAME_WIDTH = 1000;
-    static final int GAME_HEIGHT = 600;
+    static final int GAME_WIDTH = 1350;
+    static final int GAME_HEIGHT = 750;
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
 
     // Frog (player) dimensions
@@ -26,6 +26,7 @@ public class GamePanel extends JPanel implements Runnable {
     Graphics graphics;
     Frog frog;
     ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Truck> trucks = new ArrayList<>();
 
     /**
      * Creates the frog and cars, starts the threat and set panel size.
@@ -33,6 +34,7 @@ public class GamePanel extends JPanel implements Runnable {
     GamePanel() {
         newFrog();
         newCar();
+        newTruck();
 
         this.setFocusable(true);
         this.addKeyListener(new AL());
@@ -54,8 +56,15 @@ public class GamePanel extends JPanel implements Runnable {
      * Creates new cars and add them to ArrayList<> cars.
      */
     public void newCar() {
-        cars.add(new Car(0, 100, 50, 50, false));
-        cars.add(new Car(0, 300, 50, 50, true));
+        cars.add(new Car(0, 100, 50, 30, false));
+        cars.add(new Car(0, 300, 50, 30, true));
+    }
+
+    /**
+     * Creates new truck and add them to ArrayList<> trucks.
+     */
+    public void newTruck() {
+        trucks.add(new Truck(0, 200, 150, 50, false));
     }
 
     /**
@@ -82,6 +91,11 @@ public class GamePanel extends JPanel implements Runnable {
             for (Car car : cars) {
                 car.draw(g);
             }
+
+            // Draw the trucks
+            for (Truck truck : trucks) {
+                truck.draw(g);
+            }
         } else {
             if (frog.y <= 0) {
                 gameWon(g);
@@ -100,6 +114,10 @@ public class GamePanel extends JPanel implements Runnable {
         // Move the cars
         for(Car car : cars) {
             car.move();
+        }
+        // Move the trucks
+        for (Truck truck : trucks) {
+            truck.move();
         }
     }
 
@@ -125,6 +143,21 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
+        // Check truck collision with window edges
+        for(Truck truck : trucks) {
+            if (!truck.isMovingLeft) {
+                // Check car collision with right edge
+                if (truck.x >= GAME_WIDTH) {
+                    truck.x = 0-truck.width;
+                }
+            } else {
+                // Check car collision with left edge
+                if (truck.x <= 0-truck.width) {
+                    truck.x = GAME_WIDTH;
+                }
+            }
+        }
+
         // Check frog collision with panel edges
         if (frog.x <= 0) {
             frog.x = 0;
@@ -142,6 +175,13 @@ public class GamePanel extends JPanel implements Runnable {
         // Check collision between the frog and cars
         for(Car car : cars) {
             if (frog.intersects(car)) {
+                running = false;
+            }
+        }
+
+        // Check collision between the frog and trucks
+        for(Truck truck : trucks) {
+            if (frog.intersects(truck)) {
                 running = false;
             }
         }

@@ -1,26 +1,26 @@
 import java.awt.*;
 
-public class Car extends Rectangle {
+public class Truck extends Rectangle {
     // Variables
-    int speed = 10;
+    int speed = 5;
     boolean isMovingLeft;
-    Color color = Color.white;
+    Color color = Color.orange;
 
     /**
-     * Create a new car based on parameters.
+     * Create a new truck based on parameters.
      * @param x - Integer - Starting value of x coordinate.
      * @param y - Integer - Starting value of y coordinate.
-     * @param width - Integer - Width of the car.
-     * @param height - Integer - Height of the car.
-     * @param isMovingLeft - Boolean - Direction of the car. Right if false, left if true.
+     * @param width - Integer - Width of the truck.
+     * @param height - Integer - Height of the truck.
+     * @param isMovingLeft - Boolean - Direction of the truck. Right if false, left if true.
      */
-    Car(int x, int y, int width, int height, boolean isMovingLeft) {
+    Truck(int x, int y, int width, int height, boolean isMovingLeft) {
         super(x, y, width, height);
         this.isMovingLeft = isMovingLeft;
     }
 
     /**
-     * Update x coordinate of the car based on direction (isMovingLeft)
+     * Update x coordinate of the truck based on direction (isMovingLeft)
      */
     public void move() {
         if (isMovingLeft) {
@@ -32,7 +32,7 @@ public class Car extends Rectangle {
     }
 
     /**
-     * Draw the car
+     * Draw the truck
      * @param g - the <code>Graphics</code> object to protect.
      */
     public void draw(Graphics g) {

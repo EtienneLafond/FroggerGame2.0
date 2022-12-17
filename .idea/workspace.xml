@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="86aa3b62-db55-4824-b2b1-127b2dd149d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/GamePanelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GamePanelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +54,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CarTest.move">
+  <component name="RunManager" selected="JUnit.GamePanelTest.newFrog">
     <configuration name="CarTest.Car" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FroggerGame2.0" />
       <option name="PACKAGE_NAME" value="" />
@@ -73,26 +75,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FrogTest.Frog" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FroggerGame2.0" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FrogTest" />
-      <option name="METHOD_NAME" value="Frog" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FrogTest.move" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FroggerGame2.0" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FrogTest" />
-      <option name="METHOD_NAME" value="move" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GamePanelTest.GamePanel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FroggerGame2.0" />
       <option name="PACKAGE_NAME" value="" />
@@ -103,13 +85,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GamePanelTest.newCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FroggerGame2.0" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GamePanelTest" />
+      <option name="METHOD_NAME" value="newCar" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GamePanelTest.newFrog" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FroggerGame2.0" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GamePanelTest" />
+      <option name="METHOD_NAME" value="newFrog" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GamePanelTest.newFrog" />
+        <item itemvalue="JUnit.GamePanelTest.GamePanel" />
+        <item itemvalue="JUnit.GamePanelTest.newCar" />
         <item itemvalue="JUnit.CarTest.move" />
         <item itemvalue="JUnit.CarTest.Car" />
-        <item itemvalue="JUnit.FrogTest.Frog" />
-        <item itemvalue="JUnit.GamePanelTest.GamePanel" />
-        <item itemvalue="JUnit.FrogTest.move" />
       </list>
     </recent_temporary>
   </component>
@@ -123,7 +125,7 @@
       <updated>1671197730810</updated>
       <workItem from="1671197732626" duration="12978000" />
       <workItem from="1671217773961" duration="1590000" />
-      <workItem from="1671285855037" duration="375000" />
+      <workItem from="1671285855037" duration="1912000" />
     </task>
     <servers />
   </component>

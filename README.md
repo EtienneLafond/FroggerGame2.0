@@ -5,9 +5,11 @@ Basic implementation of the popular Frogger Game from 1981.
 
 Current implementation:
 - Basic functionality including moving the frog, moving the cars and ending the game (win/lose)
+- Unit test partially implemented
 
 Future implementation:
 - Adding more cars
+- Add more test cases
 - Upgrading graphics (images for the background, cars and frog)
 - Adding different types of vehicles (cars, trucks, busses, motorcycles,...)
   - This will require creating new super class ((vehicle) and sub classes (truck...) as 
